@@ -1,219 +1,199 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Portfólio de Breno Gustavo de Andrade Soares — Desenvolvedor Front-end e Back-end."
-    />
-    <title>Breno Soares | Desenvolvedor Full Stack</title>
-    <link rel="icon" href="assets/icons/logo.svg" />
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portfólio de Breno Gustavo de Andrade Soares — Design de Front-end e Marketing." />
+  <title>Breno Soares | Design de Front-end e Marketing</title>
+  <link rel="icon" href="assets/icons/logo.svg" />
 
-    <!-- Fontes -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  body {
-    font-family: 'Poppins', sans-serif;
-  }
-</style>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- AOS Animate -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
-    />
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 
-    <!-- Script -->
-    <script defer src="assets/js/script.js"></script>
+  <!-- AOS Animate -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
-    <style>
-      body {
-        font-family: 'Poppins', sans-serif;
-      }
-      code {
-        font-family: 'Fira Code', monospace;
-      }
-    </style>
-  </head>
+  <!-- Script -->
+  <script defer src="assets/js/script.js"></script>
 
-  <body class="bg-gray-950 text-gray-100 scroll-smooth">
-    <!-- NAVBAR -->
-    <header class="fixed w-full bg-gray-900/80 backdrop-blur-md z-50 shadow border-b border-gray-800">
-      <nav class="container mx-auto flex items-center justify-between py-4 px-6">
-        <div class="flex items-center space-x-3">
-          <img
-            src="assets/icons/logo.png"
-            alt="Logo Breno"
-            class="w-10 h-10 rounded-full border border-cyan-500"
-          />
-          <h1 class="text-2xl font-bold text-cyan-400">
-            Breno<span class="text-white">Soares</span>
-          </h1>
-        </div>
-        <ul class="hidden md:flex space-x-8 text-gray-200 font-medium tracking-wide">
-          <li><a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a></li>
-          <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
-          <li><a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a></li>
-          <li><a href="#experiencia" class="hover:text-cyan-400 transition">Experiência</a></li>
-          <li><a href="#contato" class="hover:text-cyan-400 transition">Contato</a></li>
-        </ul>
-        <button id="menu-btn" class="md:hidden text-cyan-400 text-3xl">☰</button>
-      </nav>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
 
-      <ul
-        id="mobile-menu"
-        class="hidden flex-col bg-gray-900 text-center space-y-4 py-4 md:hidden"
-      >
-        <li><a href="#sobre" class="hover:text-cyan-400">Sobre</a></li>
-        <li><a href="#skills" class="hover:text-cyan-400">Skills</a></li>
-        <li><a href="#projetos" class="hover:text-cyan-400">Projetos</a></li>
-        <li><a href="#experiencia" class="hover:text-cyan-400">Experiência</a></li>
-        <li><a href="#contato" class="hover:text-cyan-400">Contato</a></li>
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-950 text-gray-100 scroll-smooth">
+  <!-- NAVBAR -->
+  <header class="fixed w-full bg-gray-900/80 backdrop-blur-md z-50 shadow border-b border-gray-800">
+    <nav class="container mx-auto flex items-center justify-between py-4 px-6">
+      <div class="flex items-center space-x-3">
+        <img src="assets/icons/logo.png" alt="Logo Breno" class="w-10 h-10 rounded-full border border-cyan-500" />
+        <h1 class="text-2xl font-bold text-cyan-400">
+          Breno<span class="text-white">Soares</span>
+        </h1>
+      </div>
+      <ul class="hidden md:flex space-x-8 text-gray-200 font-medium tracking-wide">
+        <li><a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a></li>
+        <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
+        <li><a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a></li>
+        <li><a href="#experiencia" class="hover:text-cyan-400 transition">Experiência</a></li>
+        <li><a href="#contato" class="hover:text-cyan-400 transition">Contato</a></li>
       </ul>
-    </header>
+      <button id="menu-btn" class="md:hidden text-cyan-400 text-3xl">☰</button>
+    </nav>
 
-    <!-- HERO -->
-    <section
-      id="home"
-      class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-900 to-gray-950 px-6"
-      data-aos="fade-up"
-    >
-      <img
-        src="assets/img/foto.png"
-        alt="Foto de Breno Soares"
-        class="w-40 h-40 rounded-full shadow-lg border-4 border-cyan-500 mb-6"
-      />
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">
-        Olá, eu sou <span class="text-cyan-400">Breno Soares</span> 👋
-      </h2>
-      <p class="text-lg md:text-xl text-gray-300 max-w-2xl">
-        Desenvolvedor <span class="text-cyan-400">Front-end</span> e
-        <span class="text-cyan-400">Back-end</span> apaixonado por tecnologia e soluções inovadoras.
+    <ul id="mobile-menu" class="hidden flex-col bg-gray-900 text-center space-y-4 py-4 md:hidden">
+      <li><a href="#sobre" class="hover:text-cyan-400">Sobre</a></li>
+      <li><a href="#skills" class="hover:text-cyan-400">Skills</a></li>
+      <li><a href="#projetos" class="hover:text-cyan-400">Projetos</a></li>
+      <li><a href="#experiencia" class="hover:text-cyan-400">Experiência</a></li>
+      <li><a href="#contato" class="hover:text-cyan-400">Contato</a></li>
+    </ul>
+  </header>
+
+  <!-- HERO -->
+  <section id="home"
+    class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-900 to-gray-950 px-6"
+    data-aos="fade-up">
+    <img src="assets/img/foto.png" alt="Foto de Breno Soares"
+      class="w-40 h-40 rounded-full shadow-lg border-4 border-cyan-500 mb-6" />
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">
+      Olá, eu sou <span class="text-cyan-400">Breno Soares</span> 👋
+    </h2>
+    <p class="text-lg md:text-xl text-gray-300 max-w-2xl">
+      Designer <span class="text-cyan-400">Front-end</span> e
+      <span class="text-cyan-400">Editor de vídeo</span> apaixonado por tecnologia e soluções inovadoras.
+    </p>
+    <a href="#projetos"
+      class="mt-8 bg-cyan-500 hover:bg-cyan-400 text-white px-6 py-3 rounded-lg shadow-lg transition">Ver projetos</a>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="py-20 bg-gray-900" data-aos="fade-up">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6 text-cyan-400">👨‍💻 Sobre mim</h2>
+      <p class="text-gray-300 max-w-3xl mx-auto">
+        Sou um desenvolvedor dedicado e curioso, sempre em busca de aprendizado e novas tecnologias.
+        Tenho experiência em desenvolvimento web full stack, criando interfaces modernas e sistemas funcionais.
+        Também design de sites, posts, edição de vídeo e marketing
       </p>
-      <a
-        href="#projetos"
-        class="mt-8 bg-cyan-500 hover:bg-cyan-400 text-white px-6 py-3 rounded-lg shadow-lg transition"
-        >Ver projetos</a
-      >
-    </section>
-
-    <!-- SOBRE -->
-    <section id="sobre" class="py-20 bg-gray-900" data-aos="fade-up">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold mb-6 text-cyan-400">👨‍💻 Sobre mim</h2>
-        <p class="text-gray-300 max-w-3xl mx-auto">
-          Sou um desenvolvedor dedicado e curioso, sempre em busca de aprendizado e novas tecnologias.
-          Tenho experiência em desenvolvimento web full stack, criando interfaces modernas e sistemas funcionais.
-        </p>
-        <p class="mt-4 text-gray-400">
-          Gosto de trabalhar em equipe, compartilhar conhecimento e transformar ideias em projetos reais.
-        </p>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="py-20 bg-gray-950" data-aos="fade-up">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">🧠 Habilidades</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center">
-          <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">HTML5</div>
-          <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">CSS3</div>
-          <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">JavaScript (ES6+)</div>
-          <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">React</div>
-          <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Node.js</div>
-          <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Express</div>
-          <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">MongoDB</div>
-          <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Git / GitHub</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <section id="projetos" class="py-20 bg-gray-900" data-aos="fade-up">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">🚀 Projetos</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="group bg-gray-800 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-400/20 transition duration-500" data-aos="zoom-in">
-            <img src="assets/img/projeto1.png" alt="Projeto 1" class="rounded-lg mb-4">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-cyan-400 transition">Portfólio Pessoal</h3>
-            <p class="text-gray-400 mb-4">Meu site profissional desenvolvido com HTML, Tailwind e JS.</p>
-            <a href="https://github.com/Breno-Gus/breno-gus.github.io" target="_blank" class="text-cyan-400 hover:underline">🔗 Ver projeto</a>
-          </div>
-
-          <div class="group bg-gray-800 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-400/20 transition duration-500" data-aos="zoom-in">
-            <img src="assets/img/projeto2.png" alt="Projeto 2" class="rounded-lg mb-4">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-cyan-400 transition">To-Do List</h3>
-            <p class="text-gray-400 mb-4">Aplicação de lista de tarefas simples e funcional.</p>
-            <a href="#" class="text-cyan-400 hover:underline">🔗 Repositório</a>
-          </div>
-
-          <div class="group bg-gray-800 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-400/20 transition duration-500" data-aos="zoom-in">
-            <img src="assets/img/projeto3.png" alt="Projeto 3" class="rounded-lg mb-4">
-            <h3 class="text-xl font-semibold mb-3 group-hover:text-cyan-400 transition">API de Produtos</h3>
-            <p class="text-gray-400 mb-4">API REST criada com Node.js e Express para gerenciamento de produtos.</p>
-            <a href="#" class="text-cyan-400 hover:underline">🔗 Repositório</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIÊNCIA -->
-    <section id="experiencia" class="py-20 bg-gray-950" data-aos="fade-up">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">💼 Experiência</h2>
-        <div class="max-w-3xl mx-auto space-y-6">
-          <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-cyan-400/20 transition">
-            <h3 class="text-xl font-semibold">Curso SENAI — Auxiliar de Linha de Produção</h3>
-            <p class="text-gray-400 mt-2">
-              Experiência técnica com processos industriais e práticas sustentáveis de produção.
-            </p>
-          </div>
-          <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-cyan-400/20 transition">
-            <h3 class="text-xl font-semibold">Projetos Pessoais e Estudos</h3>
-            <p class="text-gray-400 mt-2">
-              Desenvolvimento de aplicações web e APIs, praticando front-end, back-end e integração de sistemas.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="py-20 bg-gray-900 text-center" data-aos="fade-up">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-6 text-cyan-400">📬 Contato</h2>
-        <p class="text-gray-300 mb-6">
-          Quer conversar sobre projetos ou oportunidades? Vamos trocar uma ideia!
-        </p>
-        <div class="flex justify-center gap-6 text-3xl">
-          <a href="mailto:seu-email@email.com" class="hover:text-cyan-400 transition">
-            📧
-          </a>
-          <a href="https://linkedin.com/in/seu-usuario" target="_blank" class="hover:text-cyan-400 transition">
-            🔗
-          </a>
-          <a href="https://github.com/breno-gus" target="_blank" class="hover:text-cyan-400 transition">
-            💻
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-gray-950 text-center py-6 border-t border-gray-800">
-      <p class="text-gray-500 text-sm">
-        © 2025 Breno Gustavo de Andrade Soares — Todos os direitos reservados.
+      <p class="mt-4 text-gray-400">
+        Gosto de trabalhar em equipe, compartilhar conhecimento e transformar ideias em projetos reais.
       </p>
-    </footer>
+    </div>
+  </section>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({ duration: 800, once: true });
-    </script>
-  </body>
+  <!-- SKILLS -->
+  <section id="skills" class="py-20 bg-gray-950" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">🧠 Habilidades</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center">
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">HTML5</div>
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">CSS3</div>
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Design</div>
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Marketing</div>
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">JavaScript (ES6+)</div>
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">React</div>
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Node.js</div>
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Express</div>
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">MongoDB</div>
+        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Git / GitHub</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos" class="py-20 bg-gray-900" data-aos="fade-up">
+    <div class="container mx-auto px-6 transition">
+      <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">🚀 Projetos</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="group bg-gray-800 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-400/20 transition duration-500"
+          data-aos="zoom-in">
+          <img src="assets/img/projeto1.png" alt="Projeto 1" class="rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-3 group-hover:text-cyan-400 transition">Portfólio Pessoal</h3>
+          <p class="text-gray-400 mb-4">Meu site profissional desenvolvido com HTML, Tailwind e JS.</p>
+          <a href="https://github.com/Breno-Gus/breno-gus.github.io" target="_blank"
+            class="text-cyan-400 hover:underline">🔗 Ver projeto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section id="experiencia" class="py-20 bg-gray-950" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">💼 Experiência</h2>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-cyan-400/20 transition">
+          <h3 class="text-xl font-semibold">Curso SENAI — Auxiliar de Linha de Produção</h3>
+          <p class="text-gray-400 mt-2">
+            Experiência técnica com processos industriais e práticas sustentáveis de produção.
+          </p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-cyan-400/20 transition">
+          <h3 class="text-xl font-semibold">Curso SENAI — Auxiliar de Linha de Produção</h3>
+          <p class="text-gray-400 mt-2">
+            Experiência técnica com processos industriais e práticas sustentáveis de produção.
+          </p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-cyan-400/20 transition">
+          <h3 class="text-xl font-semibold">Projetos Pessoais e Estudos</h3>
+          <p class="text-gray-400 mt-2">
+            Desenvolvimento de aplicações web e APIs, praticando front-end, back-end e integração de sistemas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="py-20 bg-gray-900 text-center" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-6 text-cyan-400">📬 Contato</h2>
+      <p class="text-gray-300 mb-6">
+        Quer conversar sobre projetos ou oportunidades? Vamos trocar uma ideia!
+      </p>
+      <div class="flex justify-center gap-6 text-3xl">
+        <a href="mailto:seu-email@email.com" class="hover:text-cyan-400 transition">
+          📧
+        </a>
+        <a href="https://linkedin.com/in/seu-usuario" target="_blank" class="hover:text-cyan-400 transition">
+          🔗
+        </a>
+        <a href="https://github.com/breno-gus" target="_blank" class="hover:text-cyan-400 transition">
+          💻
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-950 text-center py-6 border-t border-gray-800">
+    <p class="text-gray-500 text-sm">
+      © 2025 Breno Gustavo de Andrade Soares — Todos os direitos reservados.
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+
 </html>
