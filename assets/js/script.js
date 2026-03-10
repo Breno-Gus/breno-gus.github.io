@@ -3,6 +3,65 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenu = document.getElementById("mobile-menu");
   const mobileLinks = document.querySelectorAll("#mobile-menu a");
 
+const copyEmailBtn = document.getElementById("copy-email-btn");
+const copyFeedback = document.getElementById("copy-feedback");
+
+if (copyEmailBtn) {
+  copyEmailBtn.addEventListener("click", () => {
+    const email = copyEmailBtn.dataset.email;
+
+    const showFeedback = (text = "Copiado!") => {
+      if (!copyFeedback) return;
+      copyFeedback.textContent = text;
+      copyFeedback.classList.add("show");
+
+      clearTimeout(copyFeedback._timeout);
+      copyFeedback._timeout = setTimeout(() => {
+        copyFeedback.classList.remove("show");
+      }, 1800);
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(email)
+        .then(() => showFeedback("Copiado!"))
+        .catch(() => fallbackCopy(email, showFeedback));
+    } else {
+      fallbackCopy(email, showFeedback);
+    }
+  });
+}
+
+function fallbackCopy(text, showFeedback) {
+  const input = document.createElement("textarea");
+  input.value = text;
+  input.setAttribute("readonly", "");
+  input.style.position = "absolute";
+  input.style.left = "-9999px";
+  document.body.appendChild(input);
+
+  input.select();
+  input.setSelectionRange(0, 99999);
+
+  try {
+    const success = document.execCommand("copy");
+    if (success) {
+      showFeedback("Copiado!");
+    } else {
+      showFeedback("Não foi possível copiar");
+      setTimeout(() => {
+        window.location.href = `mailto:${text}`;
+      }, 400);
+    }
+  } catch {
+    showFeedback("Abrindo e-mail...");
+    setTimeout(() => {
+      window.location.href = `mailto:${text}`;
+    }, 400);
+  }
+
+  document.body.removeChild(input);
+}
+
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener("click", () => {
       const isHidden = mobileMenu.classList.toggle("hidden");

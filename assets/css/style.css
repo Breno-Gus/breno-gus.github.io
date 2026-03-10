@@ -196,6 +196,49 @@ button {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
+}
+
+.contact-content {
+  min-width: 0;
+  flex: 1;
+  position: relative;
+}
+
+.contact-main {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.email-full {
+  word-break: break-all;
+  white-space: normal;
+}
+
+#copy-email-btn {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  color: inherit;
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.copy-feedback {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #67e8f9;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.copy-feedback.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .social-icon {

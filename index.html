@@ -278,7 +278,7 @@
 
   <!-- CONTATO -->
   <section id="contato" class="py-24 px-6">
-    <div class="grid gap-4 text-left">
+    <div class="max-w-5xl mx-auto text-center">
       <div class="mb-12" data-aos="fade-up">
         <h2 class="section-title text-3xl md:text-4xl font-bold text-cyan-400">Contato</h2>
       </div>
@@ -288,31 +288,33 @@
           Quer conversar sobre projetos, parcerias ou oportunidades? Vamos trocar uma ideia.
         </p>
 
-        <div class="grid md:grid-cols-2 gap-4 text-left">
-          <a href="mailto:brenogustavo953@gmail.com"
-            class="contact-item contact-card glass rounded-2xl p-5 hover:text-cyan-400 transition">
+        <div class="grid md:grid-cols-3 gap-4 text-left">
+          <button type="button" id="copy-email-btn" data-email="brenogustavo953@gmail.com"
+            title="Clique para copiar o e-mail"
+            class="contact-item contact-card glass rounded-2xl p-5 hover:text-cyan-400 transition text-left w-full">
             <img src="assets/icons/gmail.png" alt="Ícone de e-mail" class="social-icon" />
-            <div class="min-w-0 flex-1">
+            <div class="contact-content">
               <p class="text-sm text-gray-400 mb-1">Email</p>
-              <p class="font-semibold break-all">brenogustavo953@gmail.com</p>
+              <p class="font-semibold email-full">brenogustavo953@gmail.com</p>
+              <span id="copy-feedback" class="copy-feedback">Copiado!</span>
             </div>
-          </a>
+          </button>
 
           <a href="https://linkedin.com/in/brenogustavo-as/" target="_blank"
             class="contact-item contact-card glass rounded-2xl p-5 hover:text-cyan-400 transition">
             <img src="assets/icons/linkedin.png" alt="Ícone do LinkedIn" class="social-icon" />
-            <div class="min-w-0 flex-1">
+            <div class="contact-content">
               <p class="text-sm text-gray-400 mb-1">LinkedIn</p>
-              <p class="font-semibold break-all">linkedin.com/in/brenogustavo-as</p>
+              <p class="font-semibold contact-main">/in/brenogustavo-as</p>
             </div>
           </a>
 
           <a href="https://github.com/breno-gus" target="_blank"
-            class="contact-item contact-card glass rounded-2xl p-5 hover:text-cyan-400 transition md:col-span-2">
+            class="contact-item contact-card glass rounded-2xl p-5 hover:text-cyan-400 transition">
             <img src="assets/icons/github.png" alt="Ícone do GitHub" class="social-icon" />
-            <div class="min-w-0 flex-1">
+            <div class="contact-content">
               <p class="text-sm text-gray-400 mb-1">GitHub</p>
-              <p class="font-semibold break-all">github.com/breno-gus</p>
+              <p class="font-semibold contact-main">@breno-gus</p>
             </div>
           </a>
         </div>
