@@ -3,64 +3,66 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenu = document.getElementById("mobile-menu");
   const mobileLinks = document.querySelectorAll("#mobile-menu a");
 
-const copyEmailBtn = document.getElementById("copy-email-btn");
-const copyFeedback = document.getElementById("copy-feedback");
+  const copyEmailBtn = document.getElementById("copy-email-btn");
+  const copyFeedback = document.getElementById("copy-feedback");
 
-if (copyEmailBtn) {
-  copyEmailBtn.addEventListener("click", () => {
-    const email = copyEmailBtn.dataset.email;
+  if (copyEmailBtn && copyFeedback) {
+    copyEmailBtn.addEventListener("click", () => {
+      const email = copyEmailBtn.dataset.email;
 
-    const showFeedback = (text = "Copiado!") => {
-      if (!copyFeedback) return;
-      copyFeedback.textContent = text;
-      copyFeedback.classList.add("show");
+      const setCopiedState = () => {
+        copyFeedback.textContent = "Copiado!";
+        copyFeedback.style.color = "#67e8f9";
 
-      clearTimeout(copyFeedback._timeout);
-      copyFeedback._timeout = setTimeout(() => {
-        copyFeedback.classList.remove("show");
-      }, 1800);
-    };
+        clearTimeout(copyFeedback._timeout);
+        copyFeedback._timeout = setTimeout(() => {
+          copyFeedback.textContent = "Copiar?";
+          copyFeedback.style.color = "#22d3ee";
+        }, 1800);
+      };
 
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(email)
-        .then(() => showFeedback("Copiado!"))
-        .catch(() => fallbackCopy(email, showFeedback));
-    } else {
-      fallbackCopy(email, showFeedback);
-    }
-  });
-}
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email)
+          .then(setCopiedState)
+          .catch(() => {
+            copyFeedback.textContent = "Não deu :(";
+          });
+      } else {
+        copyFeedback.textContent = "Indisponível";
+      }
+    });
+  }
 
-function fallbackCopy(text, showFeedback) {
-  const input = document.createElement("textarea");
-  input.value = text;
-  input.setAttribute("readonly", "");
-  input.style.position = "absolute";
-  input.style.left = "-9999px";
-  document.body.appendChild(input);
+  function fallbackCopy(text, showFeedback) {
+    const input = document.createElement("textarea");
+    input.value = text;
+    input.setAttribute("readonly", "");
+    input.style.position = "absolute";
+    input.style.left = "-9999px";
+    document.body.appendChild(input);
 
-  input.select();
-  input.setSelectionRange(0, 99999);
+    input.select();
+    input.setSelectionRange(0, 99999);
 
-  try {
-    const success = document.execCommand("copy");
-    if (success) {
-      showFeedback("Copiado!");
-    } else {
-      showFeedback("Não foi possível copiar");
+    try {
+      const success = document.execCommand("copy");
+      if (success) {
+        showFeedback("Copiado!");
+      } else {
+        showFeedback("Não foi possível copiar");
+        setTimeout(() => {
+          window.location.href = `mailto:${text}`;
+        }, 400);
+      }
+    } catch {
+      showFeedback("Abrindo e-mail...");
       setTimeout(() => {
         window.location.href = `mailto:${text}`;
       }, 400);
     }
-  } catch {
-    showFeedback("Abrindo e-mail...");
-    setTimeout(() => {
-      window.location.href = `mailto:${text}`;
-    }, 400);
-  }
 
-  document.body.removeChild(input);
-}
+    document.body.removeChild(input);
+  }
 
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener("click", () => {
