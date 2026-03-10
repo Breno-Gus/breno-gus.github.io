@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const copyFeedback = document.getElementById("copy-feedback");
 
   if (copyEmailBtn && copyFeedback) {
-    copyEmailBtn.addEventListener("click", (e) => {
+    copyEmailBtn.addEventListener("click", async (e) => {
       e.preventDefault();
 
       const email = copyEmailBtn.dataset.email;
@@ -23,13 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1800);
       };
 
-      const fallbackCopy = () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        setFeedback("Copiado!", "#67e8f9");
+      } catch (error) {
         const textarea = document.createElement("textarea");
         textarea.value = email;
         textarea.setAttribute("readonly", "");
         textarea.style.position = "fixed";
         textarea.style.opacity = "0";
-        textarea.style.pointerEvents = "none";
         textarea.style.left = "-9999px";
         textarea.style.top = "0";
 
@@ -53,52 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           setFeedback("Não copiou", "#f87171");
         }
-      };
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard
-          .writeText(email)
-          .then(() => {
-            setFeedback("Copiado!", "#67e8f9");
-          })
-          .catch(() => {
-            fallbackCopy();
-          });
-      } else {
-        fallbackCopy();
       }
     });
-  }
-
-  function fallbackCopy(text, showFeedback) {
-    const input = document.createElement("textarea");
-    input.value = text;
-    input.setAttribute("readonly", "");
-    input.style.position = "absolute";
-    input.style.left = "-9999px";
-    document.body.appendChild(input);
-
-    input.select();
-    input.setSelectionRange(0, 99999);
-
-    try {
-      const success = document.execCommand("copy");
-      if (success) {
-        showFeedback("Copiado!");
-      } else {
-        showFeedback("Não foi possível copiar");
-        setTimeout(() => {
-          window.location.href = `mailto:${text}`;
-        }, 400);
-      }
-    } catch {
-      showFeedback("Abrindo e-mail...");
-      setTimeout(() => {
-        window.location.href = `mailto:${text}`;
-      }, 400);
-    }
-
-    document.body.removeChild(input);
   }
 
   if (menuBtn && mobileMenu) {
@@ -150,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 350);
   }
 
-  // SCROLL SUAVE CORRIGIDO
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
@@ -240,9 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      {
-        threshold: 0.12,
-      }
+      { threshold: 0.12 }
     );
 
     revealItems.forEach((item) => {
