@@ -216,6 +216,15 @@ button {
   white-space: normal;
 }
 
+.copy-feedback {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #22d3ee;
+  transition: 0.25s ease;
+}
+
 #copy-email-btn {
   border: none;
   cursor: pointer;
@@ -224,16 +233,6 @@ button {
   font: inherit;
   color: inherit;
   background: rgba(15, 23, 42, 0.72);
-}
-
-.copy-feedback {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 0.85rem;
-  color: #67e8f9;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .copy-feedback.show {

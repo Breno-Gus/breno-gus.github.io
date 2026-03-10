@@ -7,28 +7,65 @@ document.addEventListener("DOMContentLoaded", () => {
   const copyFeedback = document.getElementById("copy-feedback");
 
   if (copyEmailBtn && copyFeedback) {
-    copyEmailBtn.addEventListener("click", () => {
+    copyEmailBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
       const email = copyEmailBtn.dataset.email;
 
-      const setCopiedState = () => {
-        copyFeedback.textContent = "Copiado!";
-        copyFeedback.style.color = "#67e8f9";
+      const setFeedback = (text, color = "#22d3ee") => {
+        copyFeedback.textContent = text;
+        copyFeedback.style.color = color;
 
-        clearTimeout(copyFeedback._timeout);
-        copyFeedback._timeout = setTimeout(() => {
+        clearTimeout(copyFeedback._timer);
+        copyFeedback._timer = setTimeout(() => {
           copyFeedback.textContent = "Copiar?";
           copyFeedback.style.color = "#22d3ee";
         }, 1800);
       };
 
+      const fallbackCopy = () => {
+        const textarea = document.createElement("textarea");
+        textarea.value = email;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        textarea.style.pointerEvents = "none";
+        textarea.style.left = "-9999px";
+        textarea.style.top = "0";
+
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        textarea.setSelectionRange(0, email.length);
+
+        let copied = false;
+
+        try {
+          copied = document.execCommand("copy");
+        } catch {
+          copied = false;
+        }
+
+        document.body.removeChild(textarea);
+
+        if (copied) {
+          setFeedback("Copiado!", "#67e8f9");
+        } else {
+          setFeedback("Não copiou", "#f87171");
+        }
+      };
+
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(email)
-          .then(setCopiedState)
+        navigator.clipboard
+          .writeText(email)
+          .then(() => {
+            setFeedback("Copiado!", "#67e8f9");
+          })
           .catch(() => {
-            copyFeedback.textContent = "Não deu :(";
+            fallbackCopy();
           });
       } else {
-        copyFeedback.textContent = "Indisponível";
+        fallbackCopy();
       }
     });
   }
