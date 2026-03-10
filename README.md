@@ -1,61 +1,80 @@
-# 💼 Portfólio — Breno Gustavo de Andrade Soares
+# ✨ Portfólio — Breno Gustavo de Andrade Soares
 
-Bem-vindo ao meu portfólio!  
-Este projeto foi desenvolvido para apresentar minhas habilidades, projetos e trajetória na área de **desenvolvimento web**, tanto **front-end** quanto **back-end**.
+Bem-vindo ao meu portfólio.  
+Este projeto foi desenvolvido para apresentar minha identidade profissional, minhas habilidades, meus projetos e minha atuação nas áreas de **Front-end**, **design**, **marketing** e **edição de vídeo**.
+
+O objetivo do site é transmitir uma imagem moderna, criativa e profissional, destacando meu estilo visual e minha forma de transformar ideias em experiências digitais marcantes.
 
 ---
 
 ## 🚀 Sobre mim
-Sou um desenvolvedor apaixonado por tecnologia e programação.  
-Atualmente estudo e aprimoro minhas habilidades nas áreas de **desenvolvimento web**, com foco em criar aplicações modernas, responsivas e eficientes.
 
-🎯 **Objetivo:** Atuar como desenvolvedor full stack, contribuindo com soluções criativas e funcionais.  
+Sou apaixonado por tecnologia, design e criação visual.  
+Gosto de desenvolver interfaces modernas, responsivas e com personalidade, unindo **estética**, **funcionalidade** e **presença digital**.
+
+Tenho foco em projetos que valorizam não apenas o código, mas também a forma como a comunicação visual impacta a experiência do usuário.
+
+🎯 **Objetivo:** atuar com Front-end, design digital, marketing e criação de experiências visuais modernas.  
 📍 **Local:** Brasil  
-📧 **Contato:** [brenogustavo953@gmail.com]  
+📧 **Contato:** [brenogustavo953@gmail.com](mailto:brenogustavo953@gmail.com)  
 🔗 **LinkedIn:** [linkedin.com/in/brenogustavo-as](https://www.linkedin.com/in/brenogustavo-as/)  
-🌐 **Portfólio online:** [brenosoares.github.io](https://breno-gus.github.io/)
+🌐 **Portfólio online:** [breno-gus.github.io](https://breno-gus.github.io/)
 
 ---
 
-## 🧠 Tecnologias que utilizo
-**Front-end:**
-- HTML5 / CSS3 / JavaScript (ES6+)
-- React.js / Vite / Tailwind CSS
-- Responsive Design / UI Components
+## 🧠 Habilidades
 
-**Back-end:**
-- Node.js / Express
-- APIs REST / Banco de Dados (MySQL, MongoDB)
-
-**Outros:**
+### **Desenvolvimento**
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Tailwind CSS
+- Node.js
+- Express
+- MongoDB
 - Git / GitHub
-- Figma / Design Responsivo
-- VSCode / NPM / JSON
+
+### **Criativo e Visual**
+- Design de interfaces
+- UI/UX
+- Responsividade
+- Criatividade visual
+- Design para presença digital
+- Edição de vídeo
+- Marketing digital
 
 ---
 
 ## 📂 Projetos em destaque
-| Projeto | Descrição | Tecnologias | Link |
-|----------|------------|--------------|------|
-| **Portfólio Pessoal** | Meu site profissional hospedado no GitHub Pages | React, Tailwind | [Acessar](https://brenosoares.github.io) |
-| **App To-Do List** | Aplicação de lista de tarefas com armazenamento local | HTML, CSS, JS | [Repositório](#) |
-| **API de Produtos** | API REST para gerenciamento de produtos | Node.js, Express | [Repositório](#) |
 
-> 💡 *Mais projetos em breve!*
+| Projeto | Descrição | Tecnologias | Link |
+|--------|-----------|------------|------|
+| **Portfólio Pessoal** | Meu site profissional com foco em apresentação pessoal, design moderno e identidade visual forte | HTML, Tailwind, JavaScript | [Acessar](https://github.com/Breno-Gus/breno-gus.github.io) |
+| **NeoStore** | Projeto visual de e-commerce com interface moderna, vitrine de produtos e experiência mais atrativa | HTML, CSS, JavaScript | [Ver projeto](https://breno-gus.github.io/NeoStore/) |
+
+> 💡 Mais projetos e melhorias serão adicionados em breve.
 
 ---
 
-## 🧾 Como visualizar
-Se quiser rodar o projeto localmente:
+## 🎨 Identidade do projeto
+
+Este portfólio foi pensado para transmitir uma estética moderna e elegante, com foco em:
+- visual premium
+- navegação fluida
+- responsividade
+- identidade forte
+- apresentação clara das habilidades e projetos
+
+A proposta é manter um equilíbrio entre **sofisticação visual** e **simplicidade na navegação**.
+
+---
+
+## 🛠️ Como visualizar localmente
+
 ```bash
 # Clone este repositório
-git clone https://github.com/brenosoares/portfolio.git
+git clone https://github.com/Breno-Gus/breno-gus.github.io.git
 
 # Acesse a pasta do projeto
-cd portfolio
-
-# Instale as dependências (se for React ou Node)
-npm install
-
-# Inicie o projeto
-npm run dev
+cd breno-gus.github.io
