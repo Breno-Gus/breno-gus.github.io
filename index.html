@@ -5,158 +5,462 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Portfólio de Breno Gustavo de Andrade Soares — Design de Front-end e Marketing." />
-  <title>Breno Soares | Design de Front-end e Marketing</title>
+    content="Portfólio de Breno Gustavo de Andrade Soares — Front-end, design, marketing e edição de vídeo." />
+  <title>Breno Soares | Front-end, Design e Marketing</title>
   <link rel="icon" href="assets/icons/logo.svg" />
 
-
-  
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
-
-  <!-- AOS Animate -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
-  <!-- Script -->
-  <script defer src="assets/js/script.js"></script>
-
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
     }
 
-    code {
-      font-family: 'Fira Code', monospace;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(34, 211, 238, 0.08), transparent 30%),
+        linear-gradient(180deg, #030712 0%, #0b1120 50%, #020617 100%);
+      user-select: none;
+      overflow-x: hidden;
+    }
+
+    img,
+    a,
+    button {
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    ::selection {
+      background: rgba(34, 211, 238, 0.18);
+      color: #fff;
+    }
+
+    .glass {
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 58%;
+      height: 3px;
+      margin: 10px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.18) 0%, rgba(34, 211, 238, 0.02) 45%, transparent 70%);
+      filter: blur(20px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .floating {
+      animation: floating 4s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shine::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -130%;
+      width: 90%;
+      height: 100%;
+      background: linear-gradient(120deg,
+          transparent,
+          rgba(255, 255, 255, 0.08),
+          transparent);
+      transition: 0.8s;
+    }
+
+    .shine:hover::before {
+      left: 130%;
+    }
+
+    .skill-card,
+    .project-card,
+    .exp-card,
+    .contact-card {
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    }
+
+    .skill-card:hover,
+    .project-card:hover,
+    .exp-card:hover,
+    .contact-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34, 211, 238, 0.35);
+      box-shadow: 0 15px 35px rgba(34, 211, 238, 0.10);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #22d3ee, #67e8f9, #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      box-shadow: 0 10px 25px rgba(34, 211, 238, 0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(34, 211, 238, 0.24);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(34, 211, 238, 0.5);
+      color: #22d3ee;
+      transform: translateY(-2px);
+    }
+
+    .profile-ring {
+      position: relative;
+    }
+
+    .profile-ring::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border-radius: 999px;
+      background: conic-gradient(from 180deg, rgba(34, 211, 238, 0.8), transparent, rgba(34, 211, 238, 0.8));
+      filter: blur(10px);
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .tiny-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22d3ee;
+      box-shadow: 0 0 12px rgba(34, 211, 238, 0.8);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      border-radius: 999px;
+      background: #22d3ee;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: #22d3ee;
     }
   </style>
 </head>
 
-<body class="bg-gray-950 text-gray-100 scroll-smooth">
+<body class="text-gray-100">
   <!-- NAVBAR -->
-  <header class="fixed w-full bg-gray-900/80 backdrop-blur-md z-50 shadow border-b border-gray-800">
-    <nav class="container mx-auto flex items-center justify-between py-4 px-6">
-      <div class="flex items-center space-x-3">
-        <img src="assets/icons/logo.png" alt="Logo Breno" class="w-10 h-10 rounded-full border border-cyan-500" />
-        <h1 class="text-2xl font-bold text-cyan-400">
-          Breno<span class="text-white">Soares</span>
-        </h1>
-      </div>
-      <ul class="hidden md:flex space-x-8 text-gray-200 font-medium tracking-wide">
-        <li><a href="#sobre" class="hover:text-cyan-400 transition">Sobre</a></li>
-        <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
-        <li><a href="#projetos" class="hover:text-cyan-400 transition">Projetos</a></li>
-        <li><a href="#experiencia" class="hover:text-cyan-400 transition">Experiência</a></li>
-        <li><a href="#contato" class="hover:text-cyan-400 transition">Contato</a></li>
+  <header class="fixed top-0 left-0 w-full z-50">
+    <nav class="glass max-w-7xl mx-auto mt-4 rounded-2xl px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <img src="assets/icons/logo.png" alt="Logo Breno"
+          class="w-11 h-11 rounded-full border border-cyan-400/60 shadow-lg shadow-cyan-500/10" />
+        <div>
+          <h1 class="text-xl md:text-2xl font-bold text-cyan-400 leading-none">Breno<span
+              class="text-white">Soares</span></h1>
+          <span class="text-xs text-gray-400">Front-end • Design • Marketing</span>
+        </div>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm lg:text-base text-gray-200 font-medium">
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projetos" class="nav-link">Projetos</a></li>
+        <li><a href="#experiencia" class="nav-link">Experiência</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
       </ul>
-      <button id="menu-btn" class="md:hidden text-cyan-400 text-3xl">☰</button>
+
+      <button id="menu-btn" class="md:hidden text-cyan-400 text-3xl leading-none transition hover:scale-110"
+        aria-label="Abrir menu">
+        ☰
+      </button>
     </nav>
 
-    <ul id="mobile-menu" class="hidden flex-col bg-gray-900 text-center space-y-4 py-4 md:hidden">
-      <li><a href="#sobre" class="hover:text-cyan-400">Sobre</a></li>
-      <li><a href="#skills" class="hover:text-cyan-400">Skills</a></li>
-      <li><a href="#projetos" class="hover:text-cyan-400">Projetos</a></li>
-      <li><a href="#experiencia" class="hover:text-cyan-400">Experiência</a></li>
-      <li><a href="#contato" class="hover:text-cyan-400">Contato</a></li>
-    </ul>
+    <div id="mobile-menu" class="hidden max-w-7xl mx-auto mt-3 px-4 md:hidden">
+      <div class="glass rounded-2xl p-5 flex flex-col gap-4 text-center">
+        <a href="#sobre" class="mobile-link hover:text-cyan-400 transition">Sobre</a>
+        <a href="#skills" class="mobile-link hover:text-cyan-400 transition">Skills</a>
+        <a href="#projetos" class="mobile-link hover:text-cyan-400 transition">Projetos</a>
+        <a href="#experiencia" class="mobile-link hover:text-cyan-400 transition">Experiência</a>
+        <a href="#contato" class="mobile-link hover:text-cyan-400 transition">Contato</a>
+      </div>
+    </div>
   </header>
 
   <!-- HERO -->
-  <section id="home"
-    class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-900 to-gray-950 px-6"
-    data-aos="fade-up">
-    <img src="assets/img/foto.png" alt="Foto de Breno Soares"
-      class="w-40 h-40 rounded-full shadow-lg border-4 border-cyan-500 mb-6" />
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">
-      Olá, eu sou <span class="text-cyan-400">Breno Soares</span> 👋
-    </h2>
-    <p class="text-lg md:text-xl text-gray-300 max-w-2xl">
-      Designer <span class="text-cyan-400">Front-end</span> e
-      <span class="text-cyan-400">Editor de vídeo</span> apaixonado por tecnologia e soluções inovadoras.
-    </p>
-    <a href="#projetos"
-      class="mt-8 bg-cyan-500 hover:bg-cyan-400 text-white px-6 py-3 rounded-lg shadow-lg transition">Ver projetos</a>
+  <section id="home" class="relative min-h-screen flex items-center justify-center px-6 pt-36 pb-20 overflow-hidden">
+    <div class="hero-glow left-1/2 -translate-x-1/2 top-24 absolute"></div>
+
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center relative z-10">
+      <div data-aos="fade-right">
+        <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-gray-300 mb-6">
+          <span class="tiny-dot"></span>
+          Disponível para projetos e oportunidades
+        </div>
+
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+          Transformo ideias em
+          <span class="gradient-text">interfaces modernas</span>
+          e presença digital marcante.
+        </h2>
+
+        <p class="text-gray-300 text-lg leading-relaxed max-w-2xl mb-8">
+          Sou <span class="text-cyan-400 font-semibold">Breno Soares</span>, focado em
+          <span class="text-cyan-400">Front-end</span>, <span class="text-cyan-400">design</span>,
+          <span class="text-cyan-400">marketing</span> e <span class="text-cyan-400">edição de vídeo</span>.
+          Gosto de criar experiências visuais bonitas, funcionais e com personalidade.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#projetos" class="btn-primary transition px-7 py-3 rounded-xl font-semibold text-white">
+            Ver projetos
+          </a>
+          <a href="#contato"
+            class="btn-secondary transition px-7 py-3 rounded-xl font-semibold border border-gray-700 text-gray-200">
+            Entrar em contato
+          </a>
+        </div>
+
+        <div class="flex flex-wrap gap-6 mt-10 text-sm text-gray-400">
+          <span>• Visual moderno</span>
+          <span>• Código limpo</span>
+          <span>• Criatividade + estratégia</span>
+        </div>
+      </div>
+
+      <div class="flex justify-center lg:justify-end" data-aos="fade-left">
+        <div class="profile-ring floating">
+          <div class="glass p-3 rounded-[2rem]">
+            <img src="assets/img/foto.png" alt="Foto de Breno Soares"
+              class="w-72 h-72 md:w-80 md:h-80 object-cover rounded-[1.5rem] border border-cyan-400/40 shadow-2xl shadow-cyan-500/10" />
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SOBRE -->
-  <section id="sobre" class="py-20 bg-gray-900" data-aos="fade-up">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-6 text-cyan-400">👨‍💻 Sobre mim</h2>
-      <p class="text-gray-300 max-w-3xl mx-auto">
-        Sou um desenvolvedor dedicado e curioso, sempre em busca de aprendizado e novas tecnologias.
-        Tenho experiência em desenvolvimento web full stack, criando interfaces modernas e sistemas funcionais.
-        Também design de sites, posts, edição de vídeo e marketing
-      </p>
-      <p class="mt-4 text-gray-400">
-        Gosto de trabalhar em equipe, compartilhar conhecimento e transformar ideias em projetos reais.
-      </p>
+  <section id="sobre" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <h2 class="section-title text-3xl md:text-4xl font-bold text-cyan-400">Sobre mim</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+        <div class="glass rounded-3xl p-8 md:p-10" data-aos="fade-up">
+          <h3 class="text-2xl font-bold mb-5 text-white">Quem sou eu</h3>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Sou um desenvolvedor dedicado, curioso e sempre em evolução. Gosto de unir
+            <span class="text-cyan-400">estética</span>, <span class="text-cyan-400">funcionalidade</span> e
+            <span class="text-cyan-400">estratégia</span> para criar projetos que passam uma imagem forte e
+            profissional.
+          </p>
+          <p class="text-gray-400 leading-relaxed">
+            Tenho experiência com desenvolvimento web, interfaces modernas, design de sites, posts visuais,
+            edição de vídeo e marketing. Meu foco é transformar ideias em algo bonito, claro e útil.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass rounded-3xl p-6 contact-card">
+            <p class="text-cyan-400 text-sm font-semibold mb-2">Área principal</p>
+            <h4 class="text-xl font-bold mb-2">Front-end & UI</h4>
+            <p class="text-gray-400 text-sm">Interfaces modernas, responsivas e com identidade visual forte.</p>
+          </div>
+
+          <div class="glass rounded-3xl p-6 contact-card">
+            <p class="text-cyan-400 text-sm font-semibold mb-2">Visual</p>
+            <h4 class="text-xl font-bold mb-2">Design criativo</h4>
+            <p class="text-gray-400 text-sm">Layouts elegantes, consistentes e mais profissionais.</p>
+          </div>
+
+          <div class="glass rounded-3xl p-6 contact-card">
+            <p class="text-cyan-400 text-sm font-semibold mb-2">Diferencial</p>
+            <h4 class="text-xl font-bold mb-2">Marketing</h4>
+            <p class="text-gray-400 text-sm">Pensamento visual alinhado com presença digital e comunicação.</p>
+          </div>
+
+          <div class="glass rounded-3xl p-6 contact-card">
+            <p class="text-cyan-400 text-sm font-semibold mb-2">Complemento</p>
+            <h4 class="text-xl font-bold mb-2">Edição de vídeo</h4>
+            <p class="text-gray-400 text-sm">Conteúdo com mais impacto para portfólio, branding e divulgação.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="py-20 bg-gray-950" data-aos="fade-up">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">🧠 Habilidades</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center">
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">HTML5</div>
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">CSS3</div>
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Design</div>
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Marketing</div>
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">JavaScript (ES6+)</div>
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">React</div>
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Node.js</div>
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Express</div>
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">MongoDB</div>
-        <div class="bg-gray-800 py-4 rounded-lg hover:scale-105 hover:bg-gray-700 transition">Git / GitHub</div>
+  <section id="skills" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <h2 class="section-title text-3xl md:text-4xl font-bold text-cyan-400">Habilidades</h2>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">HTML5</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">CSS3</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">JavaScript</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">React</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">Tailwind</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">Node.js</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">Express</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">MongoDB</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">Git / GitHub</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">Design</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">Marketing</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">Edição de Vídeo</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">Responsividade</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">UI/UX</div>
+        <div class="skill-card glass rounded-2xl p-5 text-center font-medium">Criatividade Visual</div>
       </div>
     </div>
   </section>
 
   <!-- PROJETOS -->
-  <section id="projetos" class="py-20 bg-gray-900" data-aos="fade-up">
-    <div class="container mx-auto px-6 transition">
-      <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">🚀 Projetos</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="group bg-gray-800 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-400/20 transition duration-500"
-          data-aos="zoom-in">
-          <img src="assets/img/projeto1.png" alt="Projeto 1" class="rounded-lg mb-4">
-          <h3 class="text-xl font-semibold mb-3 group-hover:text-cyan-400 transition">Portfólio Pessoal</h3>
-          <p class="text-gray-400 mb-4">Meu site profissional desenvolvido com HTML, Tailwind e JS.</p>
-          <a href="https://github.com/Breno-Gus/breno-gus.github.io" target="_blank"
-            class="text-cyan-400 hover:underline">🔗 Ver projeto</a>
-        </div>
+  <section id="projetos" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <h2 class="section-title text-3xl md:text-4xl font-bold text-cyan-400">Projetos</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <article class="project-card glass rounded-3xl p-6 shine" data-aos="zoom-in">
+          <div class="overflow-hidden rounded-2xl border border-white/5 mb-5">
+            <img src="assets/img/projeto1.png" alt="Projeto Portfólio Pessoal" class="w-full h-56 object-cover" />
+          </div>
+          <div class="flex items-center justify-between gap-4 mb-3">
+            <h3 class="text-2xl font-bold text-white">Portfólio Pessoal</h3>
+            <span
+              class="text-xs font-semibold px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-400/20">
+              Em destaque
+            </span>
+          </div>
+          <p class="text-gray-400 leading-relaxed mb-6">
+            Meu site profissional com foco em apresentação pessoal, design moderno, responsividade e identidade visual
+            forte.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://github.com/Breno-Gus/breno-gus.github.io" target="_blank"
+              class="btn-secondary transition px-5 py-2.5 rounded-xl font-medium border border-gray-700 text-gray-200">
+              Código no GitHub
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card glass rounded-3xl p-6 shine" data-aos="zoom-in" data-aos-delay="100">
+          <div class="overflow-hidden rounded-2xl border border-white/5 mb-5">
+            <img src="assets/img/projeto1.png" alt="Projeto NeoStore" class="w-full h-56 object-cover" />
+          </div>
+          <div class="flex items-center justify-between gap-4 mb-3">
+            <h3 class="text-2xl font-bold text-white">NeoStore</h3>
+            <span
+              class="text-xs font-semibold px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-400/20">
+              Visual E-commerce
+            </span>
+          </div>
+          <p class="text-gray-400 leading-relaxed mb-6">
+            Projeto visual de e-commerce com pegada moderna, foco em interface elegante, vitrine de produtos e
+            experiência mais atrativa.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://breno-gus.github.io/NeoStore/" target="_blank"
+              class="btn-primary transition px-5 py-2.5 rounded-xl font-medium text-white">
+              Ver projeto online
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- EXPERIÊNCIA -->
-  <section id="experiencia" class="py-20 bg-gray-950" data-aos="fade-up">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">💼 Experiência</h2>
-      <div class="max-w-3xl mx-auto space-y-6">
-        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-cyan-400/20 transition">
-          <h3 class="text-xl font-semibold">Curso SENAI — Auxiliar de Linha de Produção</h3>
-          <p class="text-gray-400 mt-2">
-            Experiência técnica com processos industriais e práticas sustentáveis de produção.
+  <section id="experiencia" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <h2 class="section-title text-3xl md:text-4xl font-bold text-cyan-400">Experiência</h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="exp-card glass rounded-3xl p-7" data-aos="fade-up">
+          <h3 class="text-xl font-bold mb-2 text-white">Técnico em Desenvolvimento de Sistemas</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Formação com base em lógica, desenvolvimento de sistemas, web, estrutura de software e projetos práticos.
           </p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-cyan-400/20 transition">
-          <h3 class="text-xl font-semibold">Curso SENAI — Auxiliar de Linha de Produção</h3>
-          <p class="text-gray-400 mt-2">
-            Experiência técnica com processos industriais e práticas sustentáveis de produção.
+
+        <div class="exp-card glass rounded-3xl p-7" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-bold mb-2 text-white">Projetos Pessoais e Estudos</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Desenvolvimento de sites, interfaces e experiências visuais, praticando front-end, design, responsividade e
+            estruturação de projetos.
           </p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-cyan-400/20 transition">
-          <h3 class="text-xl font-semibold">Projetos Pessoais e Estudos</h3>
-          <p class="text-gray-400 mt-2">
-            Desenvolvimento de aplicações web e APIs, praticando front-end, back-end e integração de sistemas.
+
+        <div class="exp-card glass rounded-3xl p-7" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-bold mb-2 text-white">Design, Marketing e Conteúdo</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Criação visual para presença digital, materiais gráficos, edição de vídeo e apoio estratégico para
+            comunicação online.
           </p>
         </div>
       </div>
@@ -164,37 +468,55 @@
   </section>
 
   <!-- CONTATO -->
-  <section id="contato" class="py-20 bg-gray-900 text-center" data-aos="fade-up">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-6 text-cyan-400">📬 Contato</h2>
-      <p class="text-gray-300 mb-6">
-        Quer conversar sobre projetos ou oportunidades? Vamos trocar uma ideia!
-      </p>
-      <div class="flex justify-center gap-6 text-3xl">
-        <a class="hover:text-cyan-400 transition">
-          📧 brenogustavo953@gmail.com
-        </a>
-        <a href="https://linkedin.com/in/brenogustavo-as/" target="_blank" class="hover:text-cyan-400 transition">
-          🔗
-        </a>
-        <a href="https://github.com/breno-gus" target="_blank" class="hover:text-cyan-400 transition">
-          💻
-        </a>
+  <section id="contato" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="mb-12" data-aos="fade-up">
+        <h2 class="section-title text-3xl md:text-4xl font-bold text-cyan-400">Contato</h2>
+      </div>
+
+      <div class="glass rounded-3xl p-8 md:p-10" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-gray-300 text-lg mb-8">
+          Quer conversar sobre projetos, parcerias ou oportunidades? Vamos trocar uma ideia.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-4 text-left">
+          <a href="mailto:brenogustavo953@gmail.com"
+            class="contact-card glass rounded-2xl p-5 hover:text-cyan-400 transition">
+            <p class="text-sm text-gray-400 mb-1">Email</p>
+            <p class="font-semibold break-all">brenogustavo953@gmail.com</p>
+          </a>
+
+          <a href="https://linkedin.com/in/brenogustavo-as/" target="_blank"
+            class="contact-card glass rounded-2xl p-5 hover:text-cyan-400 transition">
+            <p class="text-sm text-gray-400 mb-1">LinkedIn</p>
+            <p class="font-semibold">linkedin.com/in/brenogustavo-as</p>
+          </a>
+
+          <a href="https://github.com/breno-gus" target="_blank"
+            class="contact-card glass rounded-2xl p-5 hover:text-cyan-400 transition">
+            <p class="text-sm text-gray-400 mb-1">GitHub</p>
+            <p class="font-semibold">github.com/breno-gus</p>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-950 text-center py-6 border-t border-gray-800">
-    <p class="text-gray-500 text-sm">
-      © 2025 Breno Gustavo de Andrade Soares — Todos os direitos reservados.
-    </p>
+  <footer class="px-6 pb-8">
+    <div class="max-w-7xl mx-auto glass rounded-2xl py-5 text-center text-sm text-gray-500">
+      © 2026 Breno Gustavo de Andrade Soares — Todos os direitos reservados.
+    </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true });
+    AOS.init({
+      duration: 850,
+      once: true,
+      offset: 60
+    });
   </script>
 </body>
 
