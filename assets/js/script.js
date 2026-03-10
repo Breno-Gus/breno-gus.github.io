@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ================================
-  // MENU MOBILE
-  // ================================
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const mobileLinks = document.querySelectorAll("#mobile-menu a");
@@ -22,9 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ================================
-  // SAUDAÇÃO DINÂMICA SEM QUEBRAR O HERO
-  // ================================
   const heroTitle = document.querySelector("#home h2");
 
   if (heroTitle) {
@@ -45,9 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  // ================================
-  // TEXTO SECUNDÁRIO COM ENTRADA SUAVE
-  // ================================
   const heroText = document.querySelector("#home p");
 
   if (heroText) {
@@ -61,27 +52,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 350);
   }
 
-  // ================================
-  // SCROLL SUAVE NOS LINKS INTERNOS
-  // ================================
+  // SCROLL SUAVE CORRIGIDO
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
       const destino = document.querySelector(targetId);
+      const header = document.querySelector("header");
 
       if (destino) {
         e.preventDefault();
-        destino.scrollIntoView({
+
+        const headerHeight = header ? header.offsetHeight : 0;
+        const extraSpace = 55;
+        const targetPosition =
+          destino.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraSpace;
+
+        window.scrollTo({
+          top: targetPosition,
           behavior: "smooth",
-          block: "start",
         });
       }
     });
   });
 
-  // ================================
-  // BOTÃO VOLTAR AO TOPO
-  // ================================
   const backToTop = document.createElement("button");
   backToTop.innerHTML = "↑";
   backToTop.setAttribute("aria-label", "Voltar ao topo");
@@ -110,9 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ================================
-  // NAVBAR ATIVA CONFORME A SEÇÃO
-  // ================================
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
 
@@ -120,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let current = "";
 
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 160;
+      const sectionTop = section.offsetTop - 180;
       const sectionHeight = section.offsetHeight;
 
       if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
@@ -139,9 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", activateNav);
   activateNav();
 
-  // ================================
-  // REVELAÇÃO SUAVE NOS CARDS
-  // ================================
   const revealItems = document.querySelectorAll(".skill-card, .project-card, .exp-card, .contact-card");
 
   if ("IntersectionObserver" in window && revealItems.length) {
