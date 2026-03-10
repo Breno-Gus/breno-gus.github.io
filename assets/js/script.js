@@ -71,14 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (destino) {
         e.preventDefault();
-
-        const headerOffset = 110;
-        const elementPosition = destino.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
+        destino.scrollIntoView({
           behavior: "smooth",
+          block: "start",
         });
       }
     });
